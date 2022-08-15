@@ -1,0 +1,31 @@
+{
+  "name": "pixijslive2d",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node browserify.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@pixi/app": "^6.5.1",
+    "@pixi/core": "^6.5.1",
+    "@pixi/ticker": "^6.5.1",
+    "pixi-live2d-display": "^0.4.0-beta.2"
+  },
+  "devDependencies": {
+    "@types/browserify": "^12.0.37",
+    "@types/gulp": "^4.0.9",
+    "@types/watchify": "^3.11.1",
+    "browserify": "^17.0.0",
+    "gulp": "^4.0.2",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "tinyify": "^3.1.0",
+    "ts-node": "^10.9.1",
+    "tsify": "^5.0.4",
+    "uglify-js": "^3.16.3",
+    "uglifyify": "^5.0.2",
+    "watchify": "^4.0.0"
+  }
+}
