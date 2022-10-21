@@ -1,10 +1,10 @@
-import * as fs from 'fs';
-import * as gulp from 'gulp';
+const fs = require('fs');
+const gulp = require('gulp');
+const browserify = require('browserify');
+const tsify = require('tsify');
 
-import browserify = require('browserify');
-import tsify = require('tsify');
 
-function loadlibs(path: string) {
+function loadlibs(path) {
 	let buffer = "";
 	for(const f of [
 		'./src/lib/live2dcubismcore.min.js',
@@ -14,11 +14,16 @@ function loadlibs(path: string) {
 	]) {
 		buffer += `${fs.readFileSync(f)}\n`;
 	}
+
 	fs.writeFileSync(path, buffer);
 }
 
 gulp.task('browserify', () => {
+	if(!fs.existsSync('./dist'))
+		fs.mkdirSync('./dist');
+
 	loadlibs('./dist/bundle.js');
+
 	return browserify({
 		entries: ['src/index.ts']
 	})
@@ -30,5 +35,5 @@ gulp.task('browserify', () => {
 });
 
 gulp.task('default', () => {
-	gulp.watch('./src/**', gulp.task('browserify')!);
+	gulp.watch('./src/**', gulp.task('browserify'));
 });
